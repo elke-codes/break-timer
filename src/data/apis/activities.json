@@ -1,0 +1,12 @@
+[{
+  "title": "get inspired",
+  "id": "quote",
+  "url": "https://programming-quotes-api.herokuapp.com/quotes/random"
+},
+{
+  "title": "laugh it away",
+  "id": "joke",
+  "url": "https://v2.jokeapi.dev/joke/Programming?type=single"
+}
+
+]

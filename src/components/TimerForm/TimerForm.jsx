@@ -2,28 +2,33 @@ import React, { Component } from "react";
 
 class TimerForm extends Component {
 	state = {
-		timer: null
+		timerValue: null
 	};
 
-	onChangeHandler = (e) => {
-		if (this.state.timer) {
-			this.setState({
-				timer: 1
-			});
-		} else {
-			this.setState({ timer: e.target.value });
-		}
+	onChangeHandler = (event) => {
+		// console.log(event.target.name, event.target.value);
+		this.setState({
+			[event.target.name]: event.target.value
+		});
+
+		console.log(this.state.timerValue);
 	};
 
+	handleSubmit = (e) => {
+		e.preventDefault();
+	};
+	// <CountDownTimer timeValue={this.state.timeValue}
+
+	//funcl (props)
+	//props.timeValue
 	render() {
 		return (
-			<form>
+			<form onSubmit={this.handleSubmit}>
 				<input
 					type="number"
 					value={this.state.timer}
-					onChange={(e) => {
-						onChangeHandler();
-					}}
+					name="timerValue"
+					onChange={this.onChangeHandler}
 				/>
 				<select>
 					<option>hr</option>
