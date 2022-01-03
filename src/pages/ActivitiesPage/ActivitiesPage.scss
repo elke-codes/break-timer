@@ -1,0 +1,18 @@
+.activities {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	align-content: center;
+
+	&__title {
+		font-size: 2rem;
+	}
+
+	&__copy {
+		// color: #ca0d53;
+	}
+}
+
+.activities-container {
+	display: flex;
+}

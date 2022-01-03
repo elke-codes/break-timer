@@ -3,9 +3,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import Quote from "../../components/Quote/Quote";
+
 import activities from "../../data/apis/activities.json";
 import Options from "../../components/Options/Options";
+import "./ActivitiesPage.scss";
 
 class ActivitiesPage extends Component {
 	state = {
@@ -30,8 +31,9 @@ class ActivitiesPage extends Component {
 		Promise.all(
 			activities.map(({ title, id, url }) =>
 				axios.get(url).then((resolve) => {
-					console.log("api call", resolve.data.en);
-					console.log("api call", resolve.data.joke);
+					// console.log("api call", resolve.data.en);
+					// console.log("api call", resolve.data.joke);
+					// console.log("api call", resolve.data.);
 
 					let data = function () {
 						if (id === "quote") {
@@ -58,101 +60,18 @@ class ActivitiesPage extends Component {
 
 	render() {
 		return (
-			<section>
-				<h1>What would you like to do during your break?</h1>
-				<Options activities={this.state.activitiesData} />
+			<section className="activities">
+				<h1 className="activities__title">
+					What would you like to do during your break?
+				</h1>
+
+				<div className="activities-container">
+					<Options activities={this.state.activitiesData} />
+				</div>
+				<p className="activities__copy">more options coming soon! </p>
 			</section>
-			// <section>
-			// 	<h1>What would you like to do during your break?</h1>
-			// 	<Link to="/quote">
-			// 		<h2>Read programming quote</h2>
-			// 		<Quote />
-			// 	</Link>
-
-			// 	<Link to="/joke">
-			// 		<h2>Read a joke</h2>
-			// 	</Link>
-			// 	<Link to="/stretch">
-			// 		<h2>Stretch it out</h2>
-			// 	</Link>
-
-			// 	<Link to="/music">
-			// 		<article>
-			// 			<h2>Listen to a song</h2>
-			// 		</article>
-			// 	</Link>
-
-			// 	<Link to="/comedy">
-			// 		<article>
-			// 			<h2>Laugh it away</h2>
-			// 		</article>
-			// 	</Link>
-			// </section>
 		);
 	}
 }
 
 export default ActivitiesPage;
-
-// componentDidUpdate(prevProps) {
-// 	console.log("match params", this.props.match);
-// 	console.log("prev", this.prevProps.match);
-
-// 	const newActivity = this.props.match.params.activity;
-// 	if (prevProps.match.params.activity !== newActivity) {
-// 		const activityToLoad =
-// 			newActivity !== undefined
-// 				? newActivity
-// 				: this.state.selectedActivity;
-
-// 		this.getActivityDetails(activityToLoad);
-// 	}
-
-// const newActivity = this.props.match.params.activity;
-// axios
-// 	.get("https://programming-quotes-api.herokuapp.com/quotes/random")
-// 	.then((resolve) => {
-// 		console.log(resolve.data.en);
-// 		this.setState({
-// 			selectedActivity: resolve.data.en
-// 		});
-// 	});
-// }
-
-// componentDidUpdate() {	return (
-// 			<section>
-// 				<h1>What would you like to do during your break?</h1>
-// 				<Link to="/quote">
-// 					<h2>Read programming quote</h2>
-// 					<Quote activity={this.state.selectedActivity} />
-// 				</Link>
-
-// 				<Link to="/joke">
-// 					<h2>Read a joke</h2>
-// 				</Link>
-// 				<Link to="/stretch">
-// 					<h2>Stretch it out</h2>
-// 				</Link>
-
-// 				<Link to="/music">
-// 					<article>
-// 						<h2>Listen to a song</h2>
-// 					</article>
-// 				</Link>
-
-// 				<Link to="/comedy">
-// 					<article>
-// 						<h2>Laugh it away</h2>
-// 					</article>
-// 				</Link>
-// 			</section>
-// 	const newActivity = this.props.match.params.activity;
-// 	if (prevProps.match.params.activity !== newActivity) {
-// 		const videoToLoadId =
-// 			newActivity !== undefined
-// 				? newActivity
-// 				: this.state.selectedActivity;
-
-// 		this.getActivityDetails(newActivity);
-// 	}
-// }

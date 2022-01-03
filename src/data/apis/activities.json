@@ -7,6 +7,10 @@
   "title": "laugh it away",
   "id": "joke",
   "url": "https://v2.jokeapi.dev/joke/Programming?type=single"
+},{
+  "title" :"watch something",
+  "id":"video",
+  "url":"https://www.googleapis.com/youtube/v3/videos?key=AIzaSyCy02B0CGzjYtFsES3fcauC_30bXOI41Vg&videoCategoryId=15&id=uHKfrz65KSU&part=player"
 }
 
 ]

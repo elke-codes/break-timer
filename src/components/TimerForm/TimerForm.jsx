@@ -1,43 +1,35 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import Clock from "../Clock/Clock";
 
 class TimerForm extends Component {
-	state = {
-		timerValue: null
-	};
+  handleSubmit = (e) => {
+    e.preventDefault();
 
-	onChangeHandler = (event) => {
-		// console.log(event.target.name, event.target.value);
-		this.setState({
-			[event.target.name]: event.target.value
-		});
+    console.log(e.target.timerValue.value);
+    console.log(e.target.timerUnit.value);
+    this.props.updateTimer(e.target.timerValue.value, e.target.timerUnit.value);
 
-		console.log(this.state.timerValue);
-	};
+    e.target.reset();
+    this.props.history.push("/timer");
+  };
 
-	handleSubmit = (e) => {
-		e.preventDefault();
-	};
-	// <CountDownTimer timeValue={this.state.timeValue}
+  render() {
+    console.log(this.props);
+    return (
+      <>
+        <form onSubmit={this.handleSubmit}>
+          <input name="timerValue" type="number" required />
+          <select name="timerUnit" required>
+            <option>hr</option>
+            <option>mints</option>
+          </select>
 
-	//funcl (props)
-	//props.timeValue
-	render() {
-		return (
-			<form onSubmit={this.handleSubmit}>
-				<input
-					type="number"
-					value={this.state.timer}
-					name="timerValue"
-					onChange={this.onChangeHandler}
-				/>
-				<select>
-					<option>hr</option>
-					<option>mints</option>
-				</select>
-				<button type="submit">start timer</button>
-			</form>
-		);
-	}
+          <button type="submit">start timer</button>
+        </form>
+      </>
+    );
+  }
 }
 
 export default TimerForm;

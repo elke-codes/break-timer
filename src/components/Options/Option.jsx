@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 import React, { Component } from "react";
+import "./Option.scss";
 
 class Option extends Component {
 	state = {
@@ -17,10 +18,12 @@ class Option extends Component {
 
 	render() {
 		return (
-			<div onClick={this.toggleShow}>
+			<div onClick={this.toggleShow} className="activity">
 				<article>
 					<h2>{this.props.activity.title}</h2>
-					<p>{this.state.show && this.props.activity.data}</p>
+					<p className="activity__copy">
+						{this.state.show && this.props.activity.data}
+					</p>
 				</article>
 			</div>
 		);

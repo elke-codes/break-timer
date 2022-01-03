@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Option from "./Option";
+import "./Options.scss";
 const Options = (props) => {
 	// const { show } = prop
 	let show = false;
@@ -11,7 +12,11 @@ const Options = (props) => {
 	}
 
 	return props.activities.map((activity) => {
-		return <Option activity={activity} />;
+		return (
+			<>
+				<Option activity={activity} />
+			</>
+		);
 	});
 };
 
